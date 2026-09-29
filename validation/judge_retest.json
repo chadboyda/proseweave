@@ -1,0 +1,121 @@
+{
+ "about": "Test-retest of the LLM easability judge used as the reference for the six judge-scale properties: Spearman rho between repeated runs with identical inputs (pair_*), split-half rho between the means of two halves of the runs, and the Spearman-Brown reliability of the mean of all runs. The judge-scale properties are validated against that mean.",
+ "articles": {
+  "runs": 10,
+  "properties": {
+   "narrativity": {
+    "pair_mean": 0.968,
+    "pair_min": 0.944,
+    "pair_max": 0.987,
+    "pair_lo90_mean": 0.951,
+    "half_split": 0.993,
+    "reliability_of_mean": 0.997,
+    "exact_agreement": 0.761
+   },
+   "word_concreteness": {
+    "pair_mean": 0.944,
+    "pair_min": 0.908,
+    "pair_max": 0.977,
+    "pair_lo90_mean": 0.914,
+    "half_split": 0.984,
+    "reliability_of_mean": 0.992,
+    "exact_agreement": 0.759
+   },
+   "syntactic_simplicity": {
+    "pair_mean": 0.971,
+    "pair_min": 0.956,
+    "pair_max": 0.985,
+    "pair_lo90_mean": 0.952,
+    "half_split": 0.991,
+    "reliability_of_mean": 0.996,
+    "exact_agreement": 0.792
+   },
+   "referential_cohesion": {
+    "pair_mean": 0.833,
+    "pair_min": 0.741,
+    "pair_max": 0.915,
+    "pair_lo90_mean": 0.761,
+    "half_split": 0.955,
+    "reliability_of_mean": 0.977,
+    "exact_agreement": 0.69
+   },
+   "deep_cohesion": {
+    "pair_mean": 0.831,
+    "pair_min": 0.706,
+    "pair_max": 0.899,
+    "pair_lo90_mean": 0.762,
+    "half_split": 0.96,
+    "reliability_of_mean": 0.98,
+    "exact_agreement": 0.674
+   },
+   "overall_quality": {
+    "pair_mean": 0.812,
+    "pair_min": 0.692,
+    "pair_max": 0.87,
+    "pair_lo90_mean": 0.741,
+    "half_split": 0.946,
+    "reliability_of_mean": 0.973,
+    "exact_agreement": 0.531
+   }
+  }
+ },
+ "open": {
+  "runs": 6,
+  "properties": {
+   "narrativity": {
+    "pair_mean": 0.963,
+    "pair_min": 0.947,
+    "pair_max": 0.976,
+    "pair_lo90_mean": 0.942,
+    "half_split": 0.987,
+    "reliability_of_mean": 0.993,
+    "exact_agreement": 0.793
+   },
+   "word_concreteness": {
+    "pair_mean": 0.938,
+    "pair_min": 0.916,
+    "pair_max": 0.967,
+    "pair_lo90_mean": 0.906,
+    "half_split": 0.972,
+    "reliability_of_mean": 0.986,
+    "exact_agreement": 0.723
+   },
+   "syntactic_simplicity": {
+    "pair_mean": 0.978,
+    "pair_min": 0.972,
+    "pair_max": 0.986,
+    "pair_lo90_mean": 0.964,
+    "half_split": 0.987,
+    "reliability_of_mean": 0.994,
+    "exact_agreement": 0.794
+   },
+   "referential_cohesion": {
+    "pair_mean": 0.821,
+    "pair_min": 0.764,
+    "pair_max": 0.887,
+    "pair_lo90_mean": 0.742,
+    "half_split": 0.931,
+    "reliability_of_mean": 0.964,
+    "exact_agreement": 0.68
+   },
+   "deep_cohesion": {
+    "pair_mean": 0.766,
+    "pair_min": 0.649,
+    "pair_max": 0.821,
+    "pair_lo90_mean": 0.676,
+    "half_split": 0.881,
+    "reliability_of_mean": 0.937,
+    "exact_agreement": 0.665
+   },
+   "overall_quality": {
+    "pair_mean": 0.804,
+    "pair_min": 0.739,
+    "pair_max": 0.862,
+    "pair_lo90_mean": 0.725,
+    "half_split": 0.923,
+    "reliability_of_mean": 0.96,
+    "exact_agreement": 0.549
+   }
+  }
+ }
+}

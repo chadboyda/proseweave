@@ -1,0 +1,27 @@
+Customer success is dead. Long live customer outcomes.
+
+That might sound dramatic, but hear me out. For the past decade, customer success has been one of the fastest-growing functions in SaaS. Every company built a CS team. Every CS team built a playbook. QBRs, health scores, NPS surveys, onboarding checklists. We got very, very good at the motions.
+
+But somewhere along the way, we lost sight of the point.
+
+Customers don't buy software. They buy outcomes. They buy the promise that their business will be better because they chose you. And too often, our customer success motions measure everything except whether that promise was kept.
+
+Think about the last QBR you ran. How much of it was about product usage? How many logins, how many seats activated, how many features adopted? Now think about how much of it was about the customer's actual business results. If you're like most teams, the ratio isn't great.
+
+This is the gap that will define the next era of SaaS. In a world of tighter budgets and more scrutiny on every renewal, "they're using the product" is no longer good enough. CFOs want to know what they're getting for their money. And if you can't answer that question clearly, your competitor will.
+
+So what does an outcome-first approach look like in practice?
+
+It starts before the deal closes. The best companies we work with define success criteria with the customer during the sales process, not after. What does winning look like in 90 days? In a year? Who owns that goal on their side? Getting this alignment early changes everything.
+
+It continues with value realization. Instead of tracking generic health scores, outcome-first teams track progress against the customer's specific goals. They proactively surface wins, flag risks and adjust the plan when things change.
+
+And it's reinforced through communication. Customers should never have to guess what value they're getting. Outcome-first teams tell a clear, data-backed story at every touchpoint, from executive business reviews to renewal conversations.
+
+The shift isn't just for CS teams, either. Product, sales and marketing all have a role to play. When the whole company rallies around customer outcomes, magic happens. Churn goes down. Expansion goes up. And your customers become your biggest advocates.
+
+This is the philosophy behind everything we build at Clarivon. Our platform helps customer-facing teams define, track and prove the outcomes that matter most to their customers. Because at the end of the day, the only metric that really matters is whether your customer is better off because they chose you.
+
+The companies that embrace this shift will build more durable, more resilient businesses. The companies that don't will keep running great QBRs right up until the customer churns.
+
+Which one will you be?

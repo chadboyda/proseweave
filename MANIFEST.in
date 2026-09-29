@@ -1,0 +1,5 @@
+# The sdist carries everything needed to rebuild the data files and rerun validation.
+include LICENSE NOTICE README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md
+recursive-include tests *.py
+recursive-include tools *.py
+recursive-include validation *.py *.md *.json *.txt

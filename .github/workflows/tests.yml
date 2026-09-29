@@ -1,0 +1,72 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # The offline suite, from the source tree. No Jev key is set, so nothing calls the network.
+  source:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        include:
+          - os: macos-latest
+            python-version: "3.13"
+          - os: windows-latest
+            python-version: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests (standard library only, no key)
+        env:
+          TYPESAFE_API_KEY: ""
+        run: python -m unittest discover -s tests -v
+
+  # Build the wheel and sdist, install the wheel into a clean venv, and run the
+  # suite against the installed package (tests copied away from src/).
+  wheel:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Build
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build
+      - name: Every data file is in the wheel
+        run: |
+          python - <<'EOF'
+          import glob, os, zipfile
+          whl = zipfile.ZipFile(glob.glob("dist/*.whl")[0])
+          names = set(whl.namelist())
+          missing = [f for f in os.listdir("src/proseweave/data") if f"proseweave/data/{f}" not in names]
+          assert not missing, missing
+          EOF
+      - name: Install into a clean venv and test the installed package
+        env:
+          TYPESAFE_API_KEY: ""
+        run: |
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install dist/*.whl
+          mkdir -p /tmp/run/validation
+          cp -R tests /tmp/run/tests
+          cp validation/catalog.py /tmp/run/validation/
+          cd /tmp/run/tests
+          HOME=/tmp/run /tmp/venv/bin/python -c "import proseweave; print(proseweave.__file__)"
+          HOME=/tmp/run /tmp/venv/bin/python -m unittest -v

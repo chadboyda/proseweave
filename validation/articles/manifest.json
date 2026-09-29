@@ -1,0 +1,866 @@
+[
+ {
+  "file": "000.txt",
+  "category": "business-economics",
+  "register": "literary",
+  "words": 913,
+  "sha256": "b6c4aaac5532b7259f2b67f29ea3461fd15431fce3cc4d8d127db4a0892929cf",
+  "url": "https://aeon.co/essays/why-everyone-needs-to-learn-some-economics"
+ },
+ {
+  "file": "001.txt",
+  "category": "business-economics",
+  "register": "literary",
+  "words": 978,
+  "sha256": "b1e80aeb6f01cbd772199952c52e2f6c04f18e922f3ec39b719843adac975bd0",
+  "url": "https://carnegieendowment.org/posts/2025/02/the-relationship-between-chinese-debt-and-chinas-trade-surplus"
+ },
+ {
+  "file": "002.txt",
+  "category": "business-economics",
+  "register": "literary",
+  "words": 937,
+  "sha256": "4479501edc4b21570c4f7dabba5d2fc9c06bce063758d3ce72c1c3ad93666868",
+  "url": "https://adamtooze.substack.com/p/chartbook-413-the-future-of-the-world"
+ },
+ {
+  "file": "003.txt",
+  "category": "business-economics",
+  "register": "literary",
+  "words": 960,
+  "sha256": "f86d9a340eeeb07456e9bca8fb8365bfbf1d86e11b9f9be16c347744f435bb0e",
+  "url": "https://www.wired.com/2009/02/wp-quant"
+ },
+ {
+  "file": "004.txt",
+  "category": "conflict-reporting",
+  "register": "literary",
+  "words": 973,
+  "sha256": "994c23eebe60ac4f8bd2112d9bd35ac04ab216dcf976c34f6150abcb009a5c61",
+  "url": "https://www.spiegel.de/international/world/the-phantom-terrorists-searching-for-islamic-state-in-syria-a-40b2f920-079b-40e3-b1d3-80fc0a1ea1b0"
+ },
+ {
+  "file": "005.txt",
+  "category": "conflict-reporting",
+  "register": "literary",
+  "words": 928,
+  "sha256": "0f6a0bd996f949e3769d34039977f9e9883f2e7e4bd083bac5687411ee351b9e",
+  "url": "https://www.vqronline.org/reporting/soft-knock"
+ },
+ {
+  "file": "006.txt",
+  "category": "conflict-reporting",
+  "register": "literary",
+  "words": 910,
+  "sha256": "6050e4c80ac8b953e48f57d742fccfc0d392e5f76c1a749055f4b12398c9a6dd",
+  "url": "https://www.newyorker.com/magazine/2016/03/07/the-man-who-made-millions-off-the-afghan-war"
+ },
+ {
+  "file": "007.txt",
+  "category": "conflict-reporting",
+  "register": "literary",
+  "words": 932,
+  "sha256": "bb721d607fd8f5b2feed08cf25fbf6c6cacf54c0af6e7128ff532b7c211a2e18",
+  "url": "https://www.newyorker.com/magazine/2023/05/29/two-weeks-at-the-front-in-ukraine"
+ },
+ {
+  "file": "008.txt",
+  "category": "listicle",
+  "register": "commercial",
+  "words": 905,
+  "sha256": "80b248f0b731a941dc33b29b0cce24eb87b73f0fa707f65ebd4cd68300b18f1b",
+  "url": "https://clickup.com/blog/best-project-management-tools"
+ },
+ {
+  "file": "009.txt",
+  "category": "listicle",
+  "register": "commercial",
+  "words": 914,
+  "sha256": "27e75d00aae0f9055ca2e69f5098e74786f9ac41f487f76c1daabd32bd0a5dc0",
+  "url": "https://www.affililist.com/blog/best-affiliate-programs"
+ },
+ {
+  "file": "010.txt",
+  "category": "listicle",
+  "register": "commercial",
+  "words": 910,
+  "sha256": "006e6455b6c0dbc52377d4808baba8b4171364f91b0fc3c315a5db1870a8f228",
+  "url": "https://trilinkcontracting.com/signs-you-need-new-roof-pittsburgh"
+ },
+ {
+  "file": "011.txt",
+  "category": "listicle",
+  "register": "commercial",
+  "words": 909,
+  "sha256": "ca79867411985db44c34c08bb6040f40d04e086a388e810c8cb7de6121fd07d1",
+  "url": "https://smarthomeunlocked.com/articles/best-robot-vacuums-2026"
+ },
+ {
+  "file": "012.txt",
+  "category": "criticism",
+  "register": "literary",
+  "words": 894,
+  "sha256": "22625dfd0d0401b47b8c8922d15099e28202582d88de2476a9073d7e4764d341",
+  "url": "https://jonathanrosenbaum.net/2024/09/my-filmgoing-in-1968-an-exploration"
+ },
+ {
+  "file": "013.txt",
+  "category": "criticism",
+  "register": "literary",
+  "words": 865,
+  "sha256": "d20747fb53ebc0bc9a90d2e4b8868ac3f5ec8cd0e1be749aa5eb080c58e3f401",
+  "url": "https://thequietus.com/opinion-and-essays/anniversary/elastica-the-menace-review"
+ },
+ {
+  "file": "014.txt",
+  "category": "criticism",
+  "register": "literary",
+  "words": 916,
+  "sha256": "01b79c98172bd5e6226f51a22b92a79cf53eff2be7d8eb4eb58e298a05fee79d",
+  "url": "https://lareviewofbooks.org/article/critical-love-studies"
+ },
+ {
+  "file": "015.txt",
+  "category": "criticism",
+  "register": "literary",
+  "words": 907,
+  "sha256": "f300d0fdf9d208e922e3f9fdd168af6591b83fe93273d04b88c3e3e06c04c492",
+  "url": "https://www.vulture.com/2013/08/low-winter-sun-review-matt-zoller-seitz.html"
+ },
+ {
+  "file": "016.txt",
+  "category": "social-post",
+  "register": "commercial",
+  "words": 902,
+  "sha256": "a23d31d139f8edae3ad4498c8c7e7a6f3fc3fe6c8e77e0da48cc8640ab692f2c",
+  "url": "https://www.lifehack.org/articles/productivity/15-ways-successful-people-think-differently.html"
+ },
+ {
+  "file": "017.txt",
+  "category": "social-post",
+  "register": "commercial",
+  "words": 931,
+  "sha256": "badacd51c3235b369da999e62a5d51f85b40615c8459989c6daac4ccaf90ca4e",
+  "url": "https://www.brainzmagazine.com/post/how-to-build-unshakeable-confidence-and-achieve-success"
+ },
+ {
+  "file": "018.txt",
+  "category": "social-post",
+  "register": "commercial",
+  "words": 902,
+  "sha256": "dcb663a34cbfd088d9807619503e0ea36e9671d4a027bf11da4bccbc4213cd7f",
+  "url": "https://www.ddi.com/blog/psychological-safety"
+ },
+ {
+  "file": "019.txt",
+  "category": "social-post",
+  "register": "commercial",
+  "words": 904,
+  "sha256": "74bb95a0134805ca39ace02f1918ccdff9a64987d307262328cf962f48657ffb",
+  "url": "https://www.linkedin.com/pulse/how-cultivate-growth-mindset-leadership-the-power-within-training"
+ },
+ {
+  "file": "020.txt",
+  "category": "food-travel",
+  "register": "literary",
+  "words": 1007,
+  "sha256": "2d514796f672007efc1b368d9cd1d40452753c4fcb61f5267a1923d24f033f54",
+  "url": "https://www.afar.com/magazine/meet-the-revolutionary-women-strumming-their-way-into-the-world-of-flamenco"
+ },
+ {
+  "file": "021.txt",
+  "category": "food-travel",
+  "register": "literary",
+  "words": 986,
+  "sha256": "c53778d82318378d3e877c47c063d9dbee1178ce3d71aa25f07a1df7e8496bc8",
+  "url": "https://oxfordamerican.org/magazine/issue-106/my-mother-s-catfish-stew"
+ },
+ {
+  "file": "022.txt",
+  "category": "food-travel",
+  "register": "literary",
+  "words": 901,
+  "sha256": "2fcfb092aa17ff9140a3e3fcd038c09f47302ce018ce6399745296072479ee59",
+  "url": "https://www.afar.com/magazine/in-rio-de-janeiro-brazil-learning-to-embrace-the-unknown"
+ },
+ {
+  "file": "023.txt",
+  "category": "food-travel",
+  "register": "literary",
+  "words": 917,
+  "sha256": "f802089146833ff753c01d89d9b1df7323095f9cdb82e4878a36a1bcf9627624",
+  "url": "https://outofedenwalk.nationalgeographic.org/2013-03-goodbye-to-alema"
+ },
+ {
+  "file": "024.txt",
+  "category": "history-writing",
+  "register": "literary",
+  "words": 933,
+  "sha256": "24e3d6c66a6591b325d21de63cffb66c85b3961872758b6cac279cc11a8352e8",
+  "url": "https://www.theguardian.com/news/2017/nov/10/how-colonial-violence-came-home-the-ugly-truth-of-the-first-world-war"
+ },
+ {
+  "file": "025.txt",
+  "category": "history-writing",
+  "register": "literary",
+  "words": 884,
+  "sha256": "6ae1bf61376ccd8588a7ead23ce51b2f39b6d1ed1b63c0a91ec5fc620624050c",
+  "url": "https://publicdomainreview.org/essay/cybernetic-attention"
+ },
+ {
+  "file": "026.txt",
+  "category": "history-writing",
+  "register": "literary",
+  "words": 917,
+  "sha256": "7a91ccd26e70f133375cc0ae475f7ad32e6ae62ab1d1623b71d4880f678257e0",
+  "url": "https://www.lrb.co.uk/the-paper/v35/n04/hilary-mantel/royal-bodies"
+ },
+ {
+  "file": "027.txt",
+  "category": "history-writing",
+  "register": "literary",
+  "words": 937,
+  "sha256": "92d97fb061fc8be83e3c9e960b051d23948de1edd28b8244b4b893929d59668c",
+  "url": "https://aeon.co/essays/what-palmistry-and-medicine-have-always-had-in-common"
+ },
+ {
+  "file": "028.txt",
+  "category": "humor-satire",
+  "register": "literary",
+  "words": 935,
+  "sha256": "f9517c0c0fc849f5dbb57336a621760e2f305545725018ed996bc110df3cc418",
+  "url": "https://www.gawkerarchives.com/on-smarm-1476594977"
+ },
+ {
+  "file": "029.txt",
+  "category": "humor-satire",
+  "register": "literary",
+  "words": 951,
+  "sha256": "db81730c4685ebe2993a0f1ce393c100b29b1113adbaa55b2d49cf8d00ae890e",
+  "url": "https://www.theatlantic.com/magazine/2026/02/individual-federal-services-replacement/685333"
+ },
+ {
+  "file": "030.txt",
+  "category": "humor-satire",
+  "register": "literary",
+  "words": 901,
+  "sha256": "ff97427fa62ac6d516140a32ecc7b3d69cc96d318f7e826c07accf44de905774",
+  "url": "https://en.wikisource.org/wiki/A_Modest_Proposal"
+ },
+ {
+  "file": "031.txt",
+  "category": "humor-satire",
+  "register": "literary",
+  "words": 932,
+  "sha256": "ec6b017279334c638df8a16d1c056c790f2e88386d797042f79c27fae89fb142",
+  "url": "https://www.mcsweeneys.net/articles/in-which-i-fix-my-girlfriends-grandparents-wifi-and-am-hailed-as-a-conquering-hero"
+ },
+ {
+  "file": "032.txt",
+  "category": "literary-essay",
+  "register": "literary",
+  "words": 976,
+  "sha256": "6b1da60ac3aec14eddaf3f1b01f5efa776170cd5636ac88ff4f2bf2d2644ab73",
+  "url": "https://lithub.com/barry-lopez-love-in-a-time-of-terror"
+ },
+ {
+  "file": "033.txt",
+  "category": "literary-essay",
+  "register": "literary",
+  "words": 957,
+  "sha256": "2391e1af5b84432db890ab4ce97c42801f302f3716ed72e1aff964d9e9ccdef2",
+  "url": "https://www.thebeliever.net/the-immortal-horizon"
+ },
+ {
+  "file": "034.txt",
+  "category": "literary-essay",
+  "register": "literary",
+  "words": 1003,
+  "sha256": "ba1ecd3e69274c04258f67888a1ba4a24ca9bc3877f1fd1ccd72f33cb0ca72e2",
+  "url": "https://theamericanscholar.org/the-disadvantages-of-an-elite-education"
+ },
+ {
+  "file": "035.txt",
+  "category": "literary-essay",
+  "register": "literary",
+  "words": 954,
+  "sha256": "105cd925bb17f4d925089a9567d2592da60551c9383800d83e255fead90668ba",
+  "url": "https://electricliterature.com/why-do-i-keep-coming-back-to-trains"
+ },
+ {
+  "file": "036.txt",
+  "category": "literary-essay-more",
+  "register": "literary",
+  "words": 904,
+  "sha256": "8fc18a84e4d906c01359fb11688eac37bcd460b3ec86c64850753b23a858877d",
+  "url": "https://www.gq.com/story/dylann-roof-making-of-an-american-terrorist"
+ },
+ {
+  "file": "037.txt",
+  "category": "literary-essay-more",
+  "register": "literary",
+  "words": 980,
+  "sha256": "a92e739bc680f70d9f1642967e1f6af17ab8b1d0720a8edcecc37df8a10550e1",
+  "url": "https://emergencemagazine.org/essay/imagining-burial"
+ },
+ {
+  "file": "038.txt",
+  "category": "literary-essay-more",
+  "register": "literary",
+  "words": 945,
+  "sha256": "4bfa54ea4f832d4e95529b8fdb78867d1ffed18dd13e5fe3fae92bd38830ad16",
+  "url": "https://orionmagazine.org/article/dirt"
+ },
+ {
+  "file": "039.txt",
+  "category": "literary-essay-more",
+  "register": "literary",
+  "words": 946,
+  "sha256": "d2b224d8d78a7c275dc2ca05c3eca650faa75e2a9fd607a1bc86747f156215b5",
+  "url": "https://www.guernicamag.com/a-clear-presence"
+ },
+ {
+  "file": "040.txt",
+  "category": "longform-journalism",
+  "register": "literary",
+  "words": 908,
+  "sha256": "62f607b49dc0b2fb1640f154a5798e0d815b39aacbc47122868710bb86c9fd06",
+  "url": "https://www.smithsonianmag.com/history/true-story-free-state-jones-180958111"
+ },
+ {
+  "file": "041.txt",
+  "category": "longform-journalism",
+  "register": "literary",
+  "words": 978,
+  "sha256": "f6099786d1d194f733d20bf3b71c3cbad9b032cdb487ea6b084cd39211dcd822",
+  "url": "https://www.theguardian.com/news/2017/aug/18/neoliberalism-the-idea-that-changed-the-world"
+ },
+ {
+  "file": "042.txt",
+  "category": "longform-journalism",
+  "register": "literary",
+  "words": 1020,
+  "sha256": "8e57d60ecbd3e62e18608472d05409928fcceb88440b3616f2d3b9bd246f4e43",
+  "url": "https://www.esquire.com/news-politics/a48031/the-falling-man-tom-junod"
+ },
+ {
+  "file": "043.txt",
+  "category": "longform-journalism",
+  "register": "literary",
+  "words": 918,
+  "sha256": "9b234381e17c16812ad519d408a59e75c0e6fc8e2518c6a612b08a7961dee631",
+  "url": "https://www.theatlantic.com/magazine/archive/2014/06/the-case-for-reparations/361631"
+ },
+ {
+  "file": "044.txt",
+  "category": "medicine-clinical",
+  "register": "literary",
+  "words": 908,
+  "sha256": "bfba668d27e44670eb372a889e585d2dc55689b1b549f773187742cf6ac42c4c",
+  "url": "https://www.newyorker.com/magazine/2017/09/11/cancers-invasion-equation"
+ },
+ {
+  "file": "045.txt",
+  "category": "medicine-clinical",
+  "register": "literary",
+  "words": 956,
+  "sha256": "92c9ea031cda702f0c0eec83b5ba8a172082c225cd4a3c011cef72d756da6c4d",
+  "url": "https://www.theguardian.com/lifeandstyle/2019/nov/22/doctor-gp-what-i-have-learned-from-my-suicidal-patients"
+ },
+ {
+  "file": "046.txt",
+  "category": "medicine-clinical",
+  "register": "literary",
+  "words": 901,
+  "sha256": "ee8805d28259ab191cd44fc6fafd6aa2b74c6a2059e8371502d18b22a0f8839e",
+  "url": "https://www.thebeliever.net/the-empathy-exams"
+ },
+ {
+  "file": "047.txt",
+  "category": "medicine-clinical",
+  "register": "literary",
+  "words": 956,
+  "sha256": "9f291e50f61df9bb58963fe170b50909b0edfe2b0c54e1d900a7d324e4b55c74",
+  "url": "https://stanmed.stanford.edu/before-i-go"
+ },
+ {
+  "file": "048.txt",
+  "category": "memoir-personal",
+  "register": "literary",
+  "words": 1005,
+  "sha256": "e14780b9f74b12c2fc94601ae2037ffec1ed31429e1fa4b5c0b3e90c118dad55",
+  "url": "https://www.thesunmagazine.org/articles/26728-some-thoughts-on-mercy"
+ },
+ {
+  "file": "049.txt",
+  "category": "memoir-personal",
+  "register": "literary",
+  "words": 1012,
+  "sha256": "c3c5ff5a4250e8dce949cd74e4b09e75bb7019512031785d2f1cb5f72f5b22a6",
+  "url": "https://www.guernicamag.com/the-trash-heap-has-spoken"
+ },
+ {
+  "file": "050.txt",
+  "category": "memoir-personal",
+  "register": "literary",
+  "words": 913,
+  "sha256": "76ef75163a989a2556690fe1a0a409806815ee7e8a86ec4b03b85128f1b0ad12",
+  "url": "https://granta.com/heart-berries"
+ },
+ {
+  "file": "051.txt",
+  "category": "memoir-personal",
+  "register": "literary",
+  "words": 929,
+  "sha256": "fcb67001e135ef05ee62f987db5f4f0675ef54f02c902c9f66a24a2dc6131164",
+  "url": "https://www.newyorker.com/magazine/2015/08/24/the-yellow-house"
+ },
+ {
+  "file": "052.txt",
+  "category": "music-writing",
+  "register": "literary",
+  "words": 977,
+  "sha256": "1e4809aba01143225e972bf23c2b6611954381b68d2a5252dccea24c7d0d051e",
+  "url": "https://www.rollingstone.com/music/music-features/rob-sheffield-grateful-dead-becoming-fan-1235512206"
+ },
+ {
+  "file": "053.txt",
+  "category": "music-writing",
+  "register": "literary",
+  "words": 1014,
+  "sha256": "cb72de204a7a8892cf14deed956aec39aa899b82a596f18e9861bcbed2233f84",
+  "url": "https://www.theringer.com/2024/10/02/music/60-songs-that-explain-the-90s-the-2000s-killers-mr-brightside"
+ },
+ {
+  "file": "054.txt",
+  "category": "music-writing",
+  "register": "literary",
+  "words": 897,
+  "sha256": "048d9a57847a6dc314f42ce7e0fccd0fb3f07052dab4a821b249cbc2a2e818de",
+  "url": "https://www.newyorker.com/magazine/2022/12/05/the-enduring-metal-genius-of-metallica"
+ },
+ {
+  "file": "055.txt",
+  "category": "music-writing",
+  "register": "literary",
+  "words": 928,
+  "sha256": "42329c8e0cb7ee61c4bc07e7ffde6bd9c6c4f359cda081febd4120f85c45f686",
+  "url": "https://www.theguardian.com/music/2026/aug/25/dolly-parton-country-music-career"
+ },
+ {
+  "file": "056.txt",
+  "category": "nature-place",
+  "register": "literary",
+  "words": 1006,
+  "sha256": "16ef594f4d7247e8a9a20aa4a0223d581d09239515eb0763f0fe31431eac911d",
+  "url": "https://orionmagazine.org/article/forever-gone"
+ },
+ {
+  "file": "057.txt",
+  "category": "nature-place",
+  "register": "literary",
+  "words": 902,
+  "sha256": "882cb7e862ab979ab29c759c2642ec7c1491f1a426e2b3252fb8e0854f0538c5",
+  "url": "https://emergencemagazine.org/essay/the-serviceberry"
+ },
+ {
+  "file": "058.txt",
+  "category": "nature-place",
+  "register": "literary",
+  "words": 974,
+  "sha256": "db502528565f475d54928ae8e7649adb63ad944ee17d5ce1b569484c719d2c47",
+  "url": "https://www.littletoller.co.uk/the-clearing/the-fortinghall-yew-by-karen-lloyd"
+ },
+ {
+  "file": "059.txt",
+  "category": "nature-place",
+  "register": "literary",
+  "words": 915,
+  "sha256": "4dfba3139acd4867378ae06c69cdf97c0c13a8e59fd4aa2a51fba7407a675b16",
+  "url": "https://www.terrain.org/2026/nonfiction/into-the-mountains"
+ },
+ {
+  "file": "060.txt",
+  "category": "obituary-eulogy",
+  "register": "literary",
+  "words": 996,
+  "sha256": "e9155f17932615f7cbf22abe0aa98c697c38c15b1d693ca4da836be87cd82da6",
+  "url": "https://www.poetryfoundation.org/articles/1658779/we-are-blessed-by-the-dead-remembering-john-burnside"
+ },
+ {
+  "file": "061.txt",
+  "category": "obituary-eulogy",
+  "register": "literary",
+  "words": 919,
+  "sha256": "3ec29e31ef194dc09ad0d6616a7afff186fc38288c7122968a086d3726cd0139",
+  "url": "https://www.theparisreview.org/blog/2022/01/07/flip-it-a-tribute-to-bell-hooks"
+ },
+ {
+  "file": "062.txt",
+  "category": "obituary-eulogy",
+  "register": "literary",
+  "words": 930,
+  "sha256": "cb6004c98c036fd29a46f0e638cb64a9ed85f5d25f8967747b17ddd4731ac12b",
+  "url": "https://www.theguardian.com/books/2017/jan/02/adrian-searle-on-john-berger-art-for-him-was-never-apart-from-being-alive"
+ },
+ {
+  "file": "063.txt",
+  "category": "obituary-eulogy",
+  "register": "literary",
+  "words": 906,
+  "sha256": "22dc01d70cd1e071893aac94c09c9da4bd5c4dd6fbec8c42cafb581b39ecce75",
+  "url": "https://www.theguardian.com/books/2021/dec/23/joan-didion-obituary"
+ },
+ {
+  "file": "064.txt",
+  "category": "political-essay",
+  "register": "literary",
+  "words": 1006,
+  "sha256": "7b1c8acb426081ed43bbc614e510cd274fc06eb6f38623a5a00dca994126b89d",
+  "url": "https://claremontreviewofbooks.com/the-political-contradictions-of-trumpism"
+ },
+ {
+  "file": "065.txt",
+  "category": "political-essay",
+  "register": "literary",
+  "words": 989,
+  "sha256": "8ac1b5f78530a7649863a82d384dd75668fed318afcb8ad0eb792c7104d60232",
+  "url": "https://firstthings.com/abortion-and-class"
+ },
+ {
+  "file": "066.txt",
+  "category": "political-essay",
+  "register": "literary",
+  "words": 999,
+  "sha256": "629de6057ce00f9eeeb487b6d14a029f38e297d9d92510c986bc059e2f8753ef",
+  "url": "https://www.thenewatlantis.com/publications/how-to-fix-social-media"
+ },
+ {
+  "file": "067.txt",
+  "category": "political-essay",
+  "register": "literary",
+  "words": 1014,
+  "sha256": "0ee30a4c81a30ed226a16e029c5668c79bb3fc1cc8caaa71b8f99815a2f06d14",
+  "url": "https://hedgehogreview.com/web-features/thr/posts/the-elon-effect"
+ },
+ {
+  "file": "068.txt",
+  "category": "press-release",
+  "register": "commercial",
+  "words": 930,
+  "sha256": "587279b1df06cd544b3b7c9c36191de886f4cee785d2ef94001116ff0b115b5c",
+  "url": "https://www.24-7pressrelease.com/press-release/537979/kvetoiq-expands-managed-web-scraping-and-data-extraction-services-for-us-businesses"
+ },
+ {
+  "file": "069.txt",
+  "category": "press-release",
+  "register": "commercial",
+  "words": 794,
+  "sha256": "a885e68dd281fc01e5a8d843201b2f48f8501b69b4b4fc1fe8884c82d81b2fca",
+  "url": "https://www.prweb.com/releases/dexian-acquires-rox-partner-expanding-data-ai-and-cybersecurity-capabilities-across-the-americas-302866780.html"
+ },
+ {
+  "file": "070.txt",
+  "category": "press-release",
+  "register": "commercial",
+  "words": 961,
+  "sha256": "730994a407ec41e33100fd3213a98c4f7deb04022898a823d9d252a14c8691ed",
+  "url": "https://www.newswire.com/news/rektron-group-announces-proposed-strategic-acquisition-of-majority-stake-in-at"
+ },
+ {
+  "file": "071.txt",
+  "category": "press-release",
+  "register": "commercial",
+  "words": 866,
+  "sha256": "c0a21cf3d164135a04b8b9bf8df32ced21224a3e74e0095087b4187c105a935c",
+  "url": "https://www.nice.com/press-releases/nice-and-ringcentral-expand-strategic-partnership-to-orchestrate-the-future-of-ai-powered-customer-and-employee-experiences"
+ },
+ {
+  "file": "072.txt",
+  "category": "profile-writing",
+  "register": "literary",
+  "words": 1015,
+  "sha256": "23cf3e2ff4ef9518ab2884a01e50e33b63a512e289334c14a3537d9eb6c404ad",
+  "url": "https://www.rollingstone.com/culture/culture-news/jahars-world-83856"
+ },
+ {
+  "file": "073.txt",
+  "category": "profile-writing",
+  "register": "literary",
+  "words": 909,
+  "sha256": "5a78e8640b15f935604d5977b1ffff4115dac705d68d9713c10fb88c3cd4ecb7",
+  "url": "https://www.esquire.com/sports/a5379/biography-ted-williams-0686"
+ },
+ {
+  "file": "074.txt",
+  "category": "profile-writing",
+  "register": "literary",
+  "words": 944,
+  "sha256": "8cd26c2b0b640a394b79f7e8c3fc5514f5335c533515854878a45d9f552164d3",
+  "url": "https://www.espn.com/espn/feature/story/_/page/Michael-Jordan/michael-jordan-not-left-building"
+ },
+ {
+  "file": "075.txt",
+  "category": "profile-writing",
+  "register": "literary",
+  "words": 995,
+  "sha256": "4259ed2390c8668bbd98646a25eaee5fb29fb8fbb8957e9110d59e2d14904e2d",
+  "url": "https://www.politico.com/news/magazine/2023/03/24/chris-rufo-desantis-anti-woke-00088578"
+ },
+ {
+  "file": "076.txt",
+  "category": "corporate-blog",
+  "register": "commercial",
+  "words": 974,
+  "sha256": "87590a90ad42c62cd5247c577a35f6793c2c86ade287ecdd2984651714d7c222",
+  "url": "https://www.cognizant.com/us/en/insights/insights-blog/a-straightforward-transformation-approach-to-an-ai-powered-future-wf2594402"
+ },
+ {
+  "file": "077.txt",
+  "category": "corporate-blog",
+  "register": "commercial",
+  "words": 955,
+  "sha256": "537897e0e357f111431f0b02d7bf673440519ce508f203c807942df61c7f54b6",
+  "url": "https://blog.workday.com/en-us/discovering-power-agility-collaboration-employee-engagement.html"
+ },
+ {
+  "file": "078.txt",
+  "category": "corporate-blog",
+  "register": "commercial",
+  "words": 826,
+  "sha256": "709b29025b7f423456fc8ff4d92cd6646a6c9309158c904d9f6c8702210d6652",
+  "url": "https://news.sap.com/2026/07/ai-transformations-pattern-emerging"
+ },
+ {
+  "file": "079.txt",
+  "category": "corporate-blog",
+  "register": "commercial",
+  "words": 923,
+  "sha256": "b020b828f347a6174d540bae900d0643e4be04c294ccfa3f661d371761c3a176",
+  "url": "https://www.zendesk.com/blog/the-future-of-customer-experience"
+ },
+ {
+  "file": "080.txt",
+  "category": "science-nature",
+  "register": "literary",
+  "words": 921,
+  "sha256": "a36adc0711a6429bce0177a1519ba0a118217a7f8969640979c9d650fa00fb2f",
+  "url": "https://emergencemagazine.org/essay/the-understory"
+ },
+ {
+  "file": "081.txt",
+  "category": "science-nature",
+  "register": "literary",
+  "words": 908,
+  "sha256": "c91030c158ec2757f16742f613ab6f0f6d159ce52657232f9639562d4278c1bf",
+  "url": "https://e360.yale.edu/features/carl-safina-screech-owl-alfie"
+ },
+ {
+  "file": "082.txt",
+  "category": "science-nature",
+  "register": "literary",
+  "words": 918,
+  "sha256": "b0176e2f684398bd42aa8cc1784e547581e55bb90be3f2fd35c09c1547fa603a",
+  "url": "https://nautil.us/the-kekul-problem-236574"
+ },
+ {
+  "file": "083.txt",
+  "category": "science-nature",
+  "register": "literary",
+  "words": 957,
+  "sha256": "241712e7ad5407542f7d5a8f484ef56f18909082e0a451f5d52bbcf3d6c74e64",
+  "url": "https://www.quantamagazine.org/quantum-tunnel-shows-particles-can-break-the-speed-of-light-20201020"
+ },
+ {
+  "file": "084.txt",
+  "category": "seo-article",
+  "register": "commercial",
+  "words": 926,
+  "sha256": "d7c03ecb6bf1a5b84c69c104b2780db757f2ef025f280c0f3588c072c632585a",
+  "url": "https://www.highperformr.ai/blog/social-media-marketing"
+ },
+ {
+  "file": "085.txt",
+  "category": "seo-article",
+  "register": "commercial",
+  "words": 923,
+  "sha256": "48649c589a78e0e5ad2f7c218a594d061187d38edacb95491d3384ad4bf4562f",
+  "url": "https://digitalscouts.co/blog/seo-strategies-for-2025-key-trends-and-best-practices"
+ },
+ {
+  "file": "086.txt",
+  "category": "seo-article",
+  "register": "commercial",
+  "words": 935,
+  "sha256": "f8bb8da60710699ac8daa6c173a6efd998ed2ac6988a295248d7c007f9030eca",
+  "url": "https://www.bridgenext.com/blog/mastering-content-marketing-in-2025-the-ultimate-guide"
+ },
+ {
+  "file": "087.txt",
+  "category": "seo-article",
+  "register": "commercial",
+  "words": 908,
+  "sha256": "8fd62be0e087bc15c6dc41c99173441f37a56b9aa377eacb489c9d68c038c7c0",
+  "url": "https://www.runnwrite.com/search-engine-optimization-guide-2025"
+ },
+ {
+  "file": "088.txt",
+  "category": "speech-rhetoric",
+  "register": "literary",
+  "words": 956,
+  "sha256": "5e6acff6f9a76689d943f48d5a44830fb5feff1f276e71722364244baf72dce7",
+  "url": "https://www.ursulakleguin.com/lefthand-mills-college"
+ },
+ {
+  "file": "089.txt",
+  "category": "speech-rhetoric",
+  "register": "literary",
+  "words": 954,
+  "sha256": "cafb6cd96a4603b24d11d2ea2ba342c549505720fd47b4b68669097ae24b216d",
+  "url": "https://www.nobelprize.org/prizes/literature/1993/morrison/lecture"
+ },
+ {
+  "file": "090.txt",
+  "category": "speech-rhetoric",
+  "register": "literary",
+  "words": 923,
+  "sha256": "a09d029699750f3bf29c62d2570b5b3a2b20e217e31e5c35b4fe3ae8780d2212",
+  "url": "https://www.nobelprize.org/prizes/literature/1995/heaney/lecture"
+ },
+ {
+  "file": "091.txt",
+  "category": "speech-rhetoric",
+  "register": "literary",
+  "words": 901,
+  "sha256": "132d3e45912aeefab5128775555def808f8e05e9c50e1acc6caef9147f74f1b6",
+  "url": "https://news.harvard.edu/gazette/story/2008/06/text-of-j-k-rowling-speech"
+ },
+ {
+  "file": "092.txt",
+  "category": "sports-writing",
+  "register": "literary",
+  "words": 930,
+  "sha256": "a00f9837398b4d21669d7589948025d23280e0068cdefe31fc8740a58e4f79d3",
+  "url": "https://www.theguardian.com/sport/2026/jun/29/spit-polish-strawberries-wimbledon-ignores-real-world-perfection"
+ },
+ {
+  "file": "093.txt",
+  "category": "sports-writing",
+  "register": "literary",
+  "words": 912,
+  "sha256": "5f537b274df02067e453a14643581758470f525e9e9522462f86c04a93471490",
+  "url": "https://www.buzzfeed.com/joelanderson/the-two-michael-sams"
+ },
+ {
+  "file": "094.txt",
+  "category": "sports-writing",
+  "register": "literary",
+  "words": 962,
+  "sha256": "edd74e265b6719011c9607d1c3d2ca1824fdc1ab671bce69e843dae6235477cb",
+  "url": "https://www.theguardian.com/football/2026/jul/18/where-did-they-go-homeless-people-feel-force-of-americas-brutality-in-world-cup-clean-up"
+ },
+ {
+  "file": "095.txt",
+  "category": "sports-writing",
+  "register": "literary",
+  "words": 962,
+  "sha256": "cc61922d0ac5631355c477c51608991bf9d2c31343f175ed31cd5a912fb54671",
+  "url": "https://grantland.com/features/sumo-wrestling-tokyo-japan-hakuho-yukio-mishima-novelist-seppuku"
+ },
+ {
+  "file": "096.txt",
+  "category": "technical-craft",
+  "register": "literary",
+  "words": 931,
+  "sha256": "32c3b801d1e87760c425de47e63e4f79c1c55ee1a30688049cd944b60af72d46",
+  "url": "https://jepsen.io/analyses/mongodb-4.2.6"
+ },
+ {
+  "file": "097.txt",
+  "category": "technical-craft",
+  "register": "literary",
+  "words": 912,
+  "sha256": "c025ed521ca1f4c9d6b24f7c91b8419d44f322d3aba1f5d732e38de1b0d71cf4",
+  "url": "https://hillelwayne.com/post/are-we-really-engineers"
+ },
+ {
+  "file": "098.txt",
+  "category": "technical-craft",
+  "register": "literary",
+  "words": 940,
+  "sha256": "42384168a01a2024b8e64b1c8f3b0f9747c20e414e824a96778bc47ebddd4304",
+  "url": "https://brooker.co.za/blog/2021/08/27/caches.html"
+ },
+ {
+  "file": "099.txt",
+  "category": "technical-craft",
+  "register": "literary",
+  "words": 923,
+  "sha256": "14690af426a5fb95bd780bb8fec8d9a34bbf720d4f81f6142a42c9fd7bc9fcf7",
+  "url": "https://ciechanow.ski/gears"
+ },
+ {
+  "file": "100.txt",
+  "category": "technical-craft-more",
+  "register": "literary",
+  "words": 900,
+  "sha256": "df3e727d7d96279fc165ca7f5cda6c84fb84769676e9d5bddc697be2b551915e",
+  "url": "https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world"
+ },
+ {
+  "file": "101.txt",
+  "category": "technical-craft-more",
+  "register": "literary",
+  "words": 909,
+  "sha256": "876d7773d719de4f1344a350603d63a92abfe5516d85d1c1d89c89098a7f489a",
+  "url": "https://jsomers.net/i-should-have-loved-biology"
+ },
+ {
+  "file": "102.txt",
+  "category": "technical-craft-more",
+  "register": "literary",
+  "words": 919,
+  "sha256": "79db6b35a333af708a2e17d9f1fdeafdfb59d36570298d3fc77e09099077010b",
+  "url": "https://locusmag.com/feature/commentary-cory-doctorow-what-kind-of-bubble-is-ai"
+ },
+ {
+  "file": "103.txt",
+  "category": "technical-craft-more",
+  "register": "literary",
+  "words": 900,
+  "sha256": "4d90fdcbb83bab26013ec2f3a60b87d5044a21febac92ccb496f6f15da4c37d2",
+  "url": "https://www.quantamagazine.org/the-physics-principle-that-inspired-modern-ai-art-20230105"
+ },
+ {
+  "file": "novel-1.txt",
+  "category": "novel",
+  "register": "fiction-draft",
+  "words": 926,
+  "sha256": "2caacdbfe73c86222d5fe48917d88ad52e99c7430c46adaf5f93bc6a6ad5be9b",
+  "note": "the author's own unpublished writing; not distributed"
+ },
+ {
+  "file": "novel-2.txt",
+  "category": "novel",
+  "register": "fiction-draft",
+  "words": 911,
+  "sha256": "6896630f9969777ab9d71af786a293f42726b1cfaf7fc802f4884e41b71f6f64",
+  "note": "the author's own unpublished writing; not distributed"
+ },
+ {
+  "file": "novel-3.txt",
+  "category": "novel",
+  "register": "fiction-draft",
+  "words": 921,
+  "sha256": "caa5ffd38e2a3e505aa0d90993c988060a64cfee23c89b91b288e6788efe3317",
+  "note": "the author's own unpublished writing; not distributed"
+ },
+ {
+  "file": "novel-4.txt",
+  "category": "novel",
+  "register": "fiction-draft",
+  "words": 937,
+  "sha256": "710b7c22cc6699861dd9cfc5b1bc56e836d49ee6b5f9388085dbfd8fec1e3ae3",
+  "note": "the author's own unpublished writing; not distributed"
+ }
+]

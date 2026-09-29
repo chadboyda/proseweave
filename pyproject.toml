@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proseweave"
+version = "0.2.0"
+description = "Text cohesion, readability and easability measures in the Python standard library"
+readme = "README.md"
+requires-python = ">=3.9"
+# The code is MIT. Bundled data files carry their own licences (see NOTICE):
+# CC BY 4.0, CC BY-SA 3.0 and 4.0, Apache 2.0, PDDL 1.0, and the WordNet,
+# CMU Pronouncing Dictionary and hyphenation-pattern notices. The validation
+# texts in validation/ (not part of the installed package) carry their own
+# licences: public domain, CC0 1.0, CC BY 4.0 and CC BY-SA 3.0/4.0, listed in
+# validation/open/LICENSES.md.
+license = "MIT AND CC-BY-4.0 AND CC-BY-SA-3.0 AND CC-BY-SA-4.0 AND Apache-2.0 AND PDDL-1.0 AND BSD-2-Clause"
+license-files = ["LICENSE", "NOTICE", "src/proseweave/data/LICENSE_*.md",
+                 "src/proseweave/data/*_NOTICE.md", "src/proseweave/data/SYNTAX_LICENSE.md"]
+authors = [{name = "Chad Boyda"}]
+keywords = ["cohesion", "readability", "text analysis", "linguistics", "writing", "nlp"]
+dependencies = []
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+[project.urls]
+Homepage = "https://github.com/chadboyda/proseweave"
+Source = "https://github.com/chadboyda/proseweave"
+Issues = "https://github.com/chadboyda/proseweave/issues"
+Changelog = "https://github.com/chadboyda/proseweave/blob/main/CHANGELOG.md"
+
+[project.scripts]
+proseweave = "proseweave.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+proseweave = ["data/*"]
