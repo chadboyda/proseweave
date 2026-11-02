@@ -9,15 +9,28 @@ judgement-scale properties.
     answers = j.ask(state, {"q1": {...}})    # one request
     many = j.ask_many([(state, qs), ...])    # parallel, packed under the token budget
 
+Images: pass `assets` ({ref: image_asset(png_bytes)}) and cite each ref in the
+state; the request then carries Jev's image header. Images are experimental on
+TypeSafe's side.
+
+    ref = new_ref()
+    resp = j.ask_full({"shot": ref}, qs, assets={ref: image_asset(png, "png")})
+
+`ask_full` returns the whole response (answers, usage, model) plus the
+latency. Pass `on_usage` to see every billed request: it is called once per
+request with the provider's own usage numbers, so a caller can price and
+budget on what Jev reported, never on an estimate. proseweave sets no prices.
+
 The key is looked up in this order: $TYPESAFE_API_KEY, then
 ~/.config/proseweave/credentials, then ./.env.
 Run `proseweave setup` to be asked for one.
 
 Set PROSEWEAVE_CACHE to a directory to cache answers on disk, keyed by the
-exact request, so a rerun on the same text makes no requests.
+exact request (images included), so a rerun on the same text makes no requests.
 """
 from __future__ import annotations
 
+import base64
 import concurrent.futures as cf
 import hashlib
 import json
@@ -26,10 +39,14 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+import uuid
 from pathlib import Path
 
 API = "https://api.typesafe.ai/v1/systemone"
 MODEL = "jev-latest"
+USER_AGENT = "proseweave (+https://github.com/chadboyda/proseweave)"
+IMAGE_HEADER = "TypeSafe-Danger-Zone-Images"   # Jev reads image assets only with this header set
+IMAGE_FORMATS = ("png", "jpg")
 
 # Jev's published budget is 64k tokens per request for state plus all questions,
 # and 32k for state plus the single longest question. Stay well inside both,
@@ -57,6 +74,20 @@ def tokens(obj) -> int:
 
 class TooLarge(RuntimeError):
     pass
+
+
+def new_ref() -> str:
+    """A fresh asset reference to cite in the state."""
+    return str(uuid.uuid4())
+
+
+def image_asset(data: bytes, fmt: str = "png") -> dict:
+    """Encoded image bytes -> one Jev image asset. Jev wants each side >= 280 px;
+    resizing is the caller's job (proseweave has no image library)."""
+    fmt = "jpg" if fmt.lower() in ("jpg", "jpeg") else fmt.lower()
+    if fmt not in IMAGE_FORMATS:
+        raise ValueError(f"image format {fmt!r}: Jev takes {IMAGE_FORMATS}")
+    return {"type": "image", "format": fmt, "data_base64": base64.b64encode(data).decode("ascii")}
 
 
 def _read_env_file(path: Path, name: str) -> str | None:
@@ -98,37 +129,65 @@ SETUP_HELP = (
 
 
 class Jev:
-    def __init__(self, key: str | None = None, model: str = MODEL, workers: int = MAX_WORKERS):
+    def __init__(self, key: str | None = None, model: str = MODEL, workers: int = MAX_WORKERS,
+                 on_usage=None, user_agent: str = USER_AGENT, timeout: float = 120):
+        """on_usage(event) runs after every billed request (never for a cache hit) with
+        {"model", "usage", "input_tokens", "latency_s", "questions", "images", "tag"};
+        usage is the provider's dict exactly as returned. An exception it raises
+        propagates, so a budget check there stops the caller."""
         self.key = key or load_key()
         if not self.key:
             raise JevUnavailable(SETUP_HELP)
         self.model = model
         self.workers = workers
+        self.on_usage = on_usage
+        self.user_agent = user_agent
+        self.timeout = timeout
         self.input_tokens = 0
         self.requests = 0
 
     # -- one request -------------------------------------------------------
-    def ask(self, state, questions: dict, retries: int = 6) -> dict:
+    def ask(self, state, questions: dict, retries: int = 6, assets: dict | None = None, tag: str = "") -> dict:
         """Return {question_id: answer}. Answers are Jev's typed results."""
+        return self.ask_full(state, questions, retries=retries, assets=assets, tag=tag)["answers"]
+
+    def ask_full(self, state, questions: dict, retries: int = 6, assets: dict | None = None,
+                 tag: str = "") -> dict:
+        """The whole response: {"answers", "usage", "model", ...} plus "latency_s" and "cached".
+        A cache hit has usage {} and cached True."""
         if not questions:
-            return {}
-        cached = self._cache_get(state, questions)
+            return {"answers": {}, "usage": {}, "model": self.model, "latency_s": 0.0, "cached": True}
+        cached = self._cache_get(state, questions, assets)
         if cached is not None:
-            return cached
-        body = json.dumps({"state": state, "model": self.model, "questions": questions}).encode()
-        req = urllib.request.Request(API, data=body, headers={
-            "Authorization": f"Bearer {self.key}", "Content-Type": "application/json"})
+            return {"answers": cached, "usage": {}, "model": self.model, "latency_s": 0.0, "cached": True}
+        payload = {"state": state, "model": self.model, "questions": questions}
+        headers = {"Authorization": f"Bearer {self.key}", "Content-Type": "application/json",
+                   "User-Agent": self.user_agent}
+        if assets:
+            payload["assets"] = assets
+            headers[IMAGE_HEADER] = "true"
+        req = urllib.request.Request(API, data=json.dumps(payload).encode(), headers=headers)
         delay = 1.0
         for attempt in range(retries):
             try:
-                with urllib.request.urlopen(req, timeout=120) as r:
+                t0 = time.perf_counter()
+                with urllib.request.urlopen(req, timeout=self.timeout) as r:
                     data = json.loads(r.read())
+                latency = time.perf_counter() - t0
                 usage = data.get("usage") or {}
-                self.input_tokens += int(usage.get("input_tokens") or 0)
+                billed = int(usage.get("input_tokens") or 0)
+                self.input_tokens += billed
                 self.requests += 1
                 answers = data.get("answers") or {}
-                self._cache_put(state, questions, answers)
-                return answers
+                if self.on_usage is not None:
+                    self.on_usage({"model": data.get("model") or self.model, "usage": usage,
+                                   "input_tokens": billed, "latency_s": latency, "questions": len(questions),
+                                   "images": len(assets or {}), "tag": tag})
+                self._cache_put(state, questions, answers, assets)
+                data["answers"] = answers
+                data["latency_s"] = latency
+                data["cached"] = False
+                return data
             except urllib.error.HTTPError as e:
                 if e.code == 401 or e.code == 403:
                     raise JevUnavailable("Jev rejected the API key (HTTP %d). " % e.code + SETUP_HELP)
@@ -202,24 +261,26 @@ class Jev:
             return a
 
     # -- optional answer cache ($PROSEWEAVE_CACHE) --------------------------
-    def _cache_key(self, state, questions):
-        blob = json.dumps([self.model, state, questions], sort_keys=True, ensure_ascii=False)
+    def _cache_key(self, state, questions, assets=None):
+        # Without assets the key is what it always was, so existing caches stay valid.
+        parts = [self.model, state, questions] + ([assets] if assets else [])
+        blob = json.dumps(parts, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(blob.encode()).hexdigest()
 
-    def _cache_get(self, state, questions):
+    def _cache_get(self, state, questions, assets=None):
         if not CACHE_DIR:
             return None
-        f = CACHE_DIR / (self._cache_key(state, questions) + ".json")
+        f = CACHE_DIR / (self._cache_key(state, questions, assets) + ".json")
         try:
             return json.loads(f.read_text())
         except (OSError, ValueError):     # missing, unreadable or partial: a miss
             return None
 
-    def _cache_put(self, state, questions, answers):
+    def _cache_put(self, state, questions, answers, assets=None):
         if not CACHE_DIR:
             return
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        f = CACHE_DIR / (self._cache_key(state, questions) + ".json")
+        f = CACHE_DIR / (self._cache_key(state, questions, assets) + ".json")
         # Write beside the target, then rename: readers see the old file or the
         # whole new one, never a half-written one.
         fd, tmp = tempfile.mkstemp(dir=CACHE_DIR, prefix=f.stem, suffix=".tmp")

@@ -65,5 +65,10 @@ First public release.
 - Optional Jev judgements (TypeSafe) for low-confidence word classes,
   relatedness, familiarity and the judgement-scale properties, with an answer
   cache (`PROSEWEAVE_CACHE`).
+- Jev client: `ask_full()` returns the whole response (usage, model, latency);
+  `assets=` sends image assets (`image_asset()`, `new_ref()`) with Jev's
+  image header; `on_usage=` reports the provider's usage for every billed
+  request so callers can budget on reported numbers. Every request now sends a
+  User-Agent. Text-only cache keys are unchanged.
 - CLI: `proseweave TEXT`, `profile`, `compare`, `source`, `cadence`, `setup`,
   `check`.
