@@ -24,6 +24,8 @@ class _Resp:
         return False
 
 
+# origin/main's _cache_key("s", {"q": {}}) with model "test"
+OLD_KEY = "f787d869226cce817866e8f90b72a28922ee0973320a33a832c08127d4376b58"
 RESPONSE = {"model": "jev-x", "answers": {"q": {"noul": 0.8}}, "usage": {"input_tokens": 1234, "output_tokens": 9}}
 
 
@@ -102,8 +104,33 @@ class Client(unittest.TestCase):
             self.assertTrue(hit["cached"])
             j.ask({"shot": "r"}, {"q": {}}, assets=a2)      # other image: a new request
             self.assertEqual((len(self.sent), len(events)), (2, 2))
-            # the text-only key is unchanged by this release, so old caches stay valid
-            self.assertEqual(j._cache_key("s", {"q": {}}), j._cache_key("s", {"q": {}}, None))
+            # the text-only key is the one origin/main computed, so old caches stay valid
+            j.model = "test"
+            self.assertEqual(j._cache_key("s", {"q": {}}), OLD_KEY)
+
+    def test_ref_from_bytes_is_stable(self):
+        self.assertEqual(jev.new_ref(b"png"), jev.new_ref(b"png"))
+        self.assertNotEqual(jev.new_ref(b"png"), jev.new_ref(b"other"))
+        self.assertNotEqual(jev.new_ref(), jev.new_ref())
+
+    def test_paid_answer_is_cached_even_when_the_hook_stops(self):
+        with tempfile.TemporaryDirectory() as d:
+            jev.CACHE_DIR = Path(d)
+
+            def stop(_):
+                raise RuntimeError("budget")
+            j = jev.Jev(key="k", on_usage=stop)
+            with self.assertRaises(RuntimeError):
+                j.ask("s", {"q": {}})
+            self.assertEqual(j._cache_get("s", {"q": {}}), RESPONSE["answers"])
+
+    def test_ask_many_stops_sending_after_a_hook_error(self):
+        def stop(_):
+            raise RuntimeError("budget")
+        j = jev.Jev(key="k", on_usage=stop, workers=1)
+        with self.assertRaises(RuntimeError):
+            j.ask_many([(f"s{i}", {"q": {}}) for i in range(20)])
+        self.assertLessEqual(len(self.sent), 2)
 
 
 if __name__ == "__main__":

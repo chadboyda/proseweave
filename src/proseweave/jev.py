@@ -13,7 +13,7 @@ Images: pass `assets` ({ref: image_asset(png_bytes)}) and cite each ref in the
 state; the request then carries Jev's image header. Images are experimental on
 TypeSafe's side.
 
-    ref = new_ref()
+    ref = new_ref(png)                       # derived from the bytes: stable across runs
     resp = j.ask_full({"shot": ref}, qs, assets={ref: image_asset(png, "png")})
 
 `ask_full` returns the whole response (answers, usage, model) plus the
@@ -27,6 +27,7 @@ Run `proseweave setup` to be asked for one.
 
 Set PROSEWEAVE_CACHE to a directory to cache answers on disk, keyed by the
 exact request (images included), so a rerun on the same text makes no requests.
+Use new_ref(bytes) for image refs: a random ref makes every request new.
 """
 from __future__ import annotations
 
@@ -76,8 +77,12 @@ class TooLarge(RuntimeError):
     pass
 
 
-def new_ref() -> str:
-    """A fresh asset reference to cite in the state."""
+def new_ref(data: bytes | None = None) -> str:
+    """An asset reference to cite in the state. Given the image bytes, the ref is
+    derived from them, so the same image gets the same ref on every run and the
+    answer cache can hit; with no bytes it is a fresh random id."""
+    if data is not None:
+        return "img-" + hashlib.sha256(data).hexdigest()[:32]
     return str(uuid.uuid4())
 
 
@@ -156,10 +161,10 @@ class Jev:
         """The whole response: {"answers", "usage", "model", ...} plus "latency_s" and "cached".
         A cache hit has usage {} and cached True."""
         if not questions:
-            return {"answers": {}, "usage": {}, "model": self.model, "latency_s": 0.0, "cached": True}
+            return {"answers": {}, "usage": {}, "model": None, "latency_s": 0.0, "cached": False}
         cached = self._cache_get(state, questions, assets)
-        if cached is not None:
-            return {"answers": cached, "usage": {}, "model": self.model, "latency_s": 0.0, "cached": True}
+        if cached is not None:   # the cache keeps answers only: the answering model is unknown here
+            return {"answers": cached, "usage": {}, "model": None, "latency_s": 0.0, "cached": True}
         payload = {"state": state, "model": self.model, "questions": questions}
         headers = {"Authorization": f"Bearer {self.key}", "Content-Type": "application/json",
                    "User-Agent": self.user_agent}
@@ -179,11 +184,11 @@ class Jev:
                 self.input_tokens += billed
                 self.requests += 1
                 answers = data.get("answers") or {}
+                self._cache_put(state, questions, answers, assets)   # paid for: keep it even if the hook stops us
                 if self.on_usage is not None:
                     self.on_usage({"model": data.get("model") or self.model, "usage": usage,
                                    "input_tokens": billed, "latency_s": latency, "questions": len(questions),
                                    "images": len(assets or {}), "tag": tag})
-                self._cache_put(state, questions, answers, assets)
                 data["answers"] = answers
                 data["latency_s"] = latency
                 data["cached"] = False
@@ -241,10 +246,17 @@ class Jev:
             for g in self.pack(state, qs):
                 flat.append((i, state, g))
         out = [dict() for _ in jobs]
-        with cf.ThreadPoolExecutor(max_workers=self.workers) as ex:
+        ex = cf.ThreadPoolExecutor(max_workers=self.workers)
+        try:
             futs = {ex.submit(self._ask_splitting, s, g): i for i, s, g in flat}
             for f in cf.as_completed(futs):
                 out[futs[f]].update(f.result())
+        except BaseException:
+            # one failure (a budget stop in on_usage, a bad key) ends the batch: queued
+            # requests are cancelled instead of being sent and billed
+            ex.shutdown(wait=True, cancel_futures=True)
+            raise
+        ex.shutdown(wait=True)
         return out
 
     def _ask_splitting(self, state, questions: dict) -> dict:
