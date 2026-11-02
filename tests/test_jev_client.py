@@ -102,6 +102,14 @@ class Client(unittest.TestCase):
             self.assertEqual(j.ask("s", {"q": {}}), RESPONSE["answers"])
         self.assertEqual(len(calls), 2)
 
+    def test_a_network_error_in_the_hook_does_not_resend_the_paid_request(self):
+        def hook(_):
+            raise TimeoutError("pricing page timed out")
+        j = jev.Jev(key="k", on_usage=hook)
+        with self.assertRaises(TimeoutError):
+            j.ask("s", {"q": {}})
+        self.assertEqual(len(self.sent), 1)
+
     def test_timeouts_on_every_try_raise_unavailable(self):
         j = jev.Jev(key="k")
         with mock.patch.object(jev.urllib.request, "urlopen", side_effect=TimeoutError("slow")), \

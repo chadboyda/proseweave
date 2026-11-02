@@ -179,21 +179,6 @@ class Jev:
                 t0 = time.perf_counter()
                 with urllib.request.urlopen(req, timeout=self.timeout) as r:
                     data = json.loads(r.read())
-                latency = time.perf_counter() - t0
-                usage = data.get("usage") or {}
-                billed = int(usage.get("input_tokens") or 0)
-                self.input_tokens += billed
-                self.requests += 1
-                answers = data.get("answers") or {}
-                self._cache_put(state, questions, answers, assets)   # paid for: keep it even if the hook stops us
-                if self.on_usage is not None:
-                    self.on_usage({"model": data.get("model") or self.model, "usage": usage,
-                                   "input_tokens": billed, "latency_s": latency, "questions": len(questions),
-                                   "images": len(assets or {}), "tag": tag})
-                data["answers"] = answers
-                data["latency_s"] = latency
-                data["cached"] = False
-                return data
             except urllib.error.HTTPError as e:
                 if e.code == 401 or e.code == 403:
                     raise JevUnavailable("Jev rejected the API key (HTTP %d). " % e.code + SETUP_HELP)
@@ -216,6 +201,23 @@ class Jev:
                     delay = min(delay * 2, 30)
                     continue
                 raise JevUnavailable(f"Jev unreachable: {getattr(e, 'reason', None) or e!r}")
+            else:
+                # outside the try: an error in the hook (its own network call) must not resend a paid request
+                latency = time.perf_counter() - t0
+                usage = data.get("usage") or {}
+                billed = int(usage.get("input_tokens") or 0)
+                self.input_tokens += billed
+                self.requests += 1
+                answers = data.get("answers") or {}
+                self._cache_put(state, questions, answers, assets)   # paid for: keep it even if the hook stops us
+                if self.on_usage is not None:
+                    self.on_usage({"model": data.get("model") or self.model, "usage": usage,
+                                   "input_tokens": billed, "latency_s": latency, "questions": len(questions),
+                                   "images": len(assets or {}), "tag": tag})
+                data["answers"] = answers
+                data["latency_s"] = latency
+                data["cached"] = False
+                return data
         raise RuntimeError("Jev: retries exhausted")
 
     # -- many requests -----------------------------------------------------
