@@ -2,6 +2,7 @@
 import base64
 import json
 import tempfile
+import threading
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -127,10 +128,21 @@ class Client(unittest.TestCase):
     def test_ask_many_stops_sending_after_a_hook_error(self):
         def stop(_):
             raise RuntimeError("budget")
+        # the second request holds the single worker until the main thread has had time to cancel the queue,
+        # so the bound does not depend on thread scheduling
+        sent, release = [], threading.Event()
+
+        def slow(req, timeout=None):
+            sent.append(req)
+            if len(sent) > 1:
+                release.wait(1.0)
+            return _Resp(RESPONSE)
         j = jev.Jev(key="k", on_usage=stop, workers=1)
-        with self.assertRaises(RuntimeError):
-            j.ask_many([(f"s{i}", {"q": {}}) for i in range(20)])
-        self.assertLessEqual(len(self.sent), 2)
+        with mock.patch.object(jev.urllib.request, "urlopen", side_effect=slow):
+            with self.assertRaises(RuntimeError):
+                j.ask_many([(f"s{i}", {"q": {}}) for i in range(20)])
+        release.set()
+        self.assertLessEqual(len(sent), 2)
 
 
 if __name__ == "__main__":
