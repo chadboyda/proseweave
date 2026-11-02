@@ -88,6 +88,27 @@ class Client(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             j.ask("s", {"q": {}})
 
+    def test_a_read_timeout_is_retried(self):
+        calls = []
+
+        def flaky(req, timeout=None):
+            calls.append(req)
+            if len(calls) == 1:
+                raise TimeoutError("The read operation timed out")
+            return _Resp(RESPONSE)
+        j = jev.Jev(key="k")
+        with mock.patch.object(jev.urllib.request, "urlopen", side_effect=flaky), \
+                mock.patch.object(jev.time, "sleep"):
+            self.assertEqual(j.ask("s", {"q": {}}), RESPONSE["answers"])
+        self.assertEqual(len(calls), 2)
+
+    def test_timeouts_on_every_try_raise_unavailable(self):
+        j = jev.Jev(key="k")
+        with mock.patch.object(jev.urllib.request, "urlopen", side_effect=TimeoutError("slow")), \
+                mock.patch.object(jev.time, "sleep"):
+            with self.assertRaises(jev.JevUnavailable):
+                j.ask("s", {"q": {}}, retries=3)
+
     def test_image_asset_rejects_unknown_formats(self):
         self.assertEqual(jev.image_asset(b"x", "jpeg")["format"], "jpg")
         with self.assertRaises(ValueError):

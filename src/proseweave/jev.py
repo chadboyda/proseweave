@@ -36,6 +36,7 @@ import concurrent.futures as cf
 import hashlib
 import json
 import os
+import socket
 import tempfile
 import time
 import urllib.error
@@ -208,12 +209,13 @@ class Jev:
                 if e.code == 400 and "max_tokens" in detail:
                     raise TooLarge(detail)
                 raise RuntimeError(f"Jev error {e.code}: {detail}")
-            except urllib.error.URLError as e:
+            except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError) as e:
+                # a slow reply raises a bare timeout (urllib wraps only the connect in URLError): retry it too
                 if attempt < retries - 1:
                     time.sleep(delay)
                     delay = min(delay * 2, 30)
                     continue
-                raise JevUnavailable(f"Jev unreachable: {e.reason}")
+                raise JevUnavailable(f"Jev unreachable: {getattr(e, 'reason', None) or e!r}")
         raise RuntimeError("Jev: retries exhausted")
 
     # -- many requests -----------------------------------------------------
